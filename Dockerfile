@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM centos
 
 MAINTAINER "Nidhi"
 
@@ -8,9 +8,9 @@ WORKDIR /opt/tomcat
 RUN curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.89/bin/apache-tomcat-8.5.89.tar.gz
 RUN tar xvfz apache*.tar.gz
 RUN mv apache-tomcat-8.5.89/* /opt/tomcat/.
-RUN apt update 
-RUN apt upgrade
-RUN apt -y install java
+RUN yum update 
+RUN yum upgrade
+RUN yum -y install java
 RUN java -version
 #ADD https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.89/bin/apache-tomcat-8.5.89.tar.gz .
 #RUN tar xvfz apache*.tar.gz
