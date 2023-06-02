@@ -1,11 +1,11 @@
-FROM centos
+FROM ubuntu
 
 MAINTAINER "Nidhi"
 
 RUN mkdir /opt/tomcat/
 
 WORKDIR /opt/tomcat
-ADD https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.40/bin/apache-tomcat-8.5.40.tar.gz .
+ADD https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.89/bin/apache-tomcat-8.5.89.tar.gz .
 RUN tar xvfz apache*.tar.gz
 RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
 RUN yum -y install java
