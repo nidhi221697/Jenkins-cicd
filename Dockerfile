@@ -6,6 +6,10 @@ RUN mkdir /opt/tomcat/
 RUN cd /etc/yum.repos.d/
 RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
 RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
+RUN yum -y update 
+RUN yum upgrade
+RUN yum -y install java
+RUN java -version
 
 WORKDIR /opt/tomcat
 RUN curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.89/bin/apache-tomcat-8.5.89.tar.gz
@@ -13,11 +17,8 @@ RUN tar xvfz apache*.tar.gz
 RUN mv apache-tomcat-8.5.89/* /opt/tomcat/.
 
 
-RUN yum -y install java
-RUN yum update 
-RUN yum upgrade
-RUN yum -y install java
-RUN java -version
+#RUN yum -y install java
+
 #ADD https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.89/bin/apache-tomcat-8.5.89.tar.gz .
 #RUN tar xvfz apache*.tar.gz
 #RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
