@@ -16,7 +16,7 @@ RUN java -version
 #RUN yum -y install java
 
 WORKDIR /opt/tomcat/webapps
-COPY my-app-1.0-SNAPSHOT.jar .
+COPY target/my-app-1.0-SNAPSHOT.jar .
 
 EXPOSE 8080
 
