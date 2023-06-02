@@ -11,7 +11,7 @@ RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
 RUN yum -y install java
 
 WORKDIR /opt/tomcat/webapps
-RUN my-app-1.0-SNAPSHOT.jar .
+COPY my-app-1.0-SNAPSHOT.jar .
 
 EXPOSE 8080
 
