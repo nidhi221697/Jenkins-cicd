@@ -28,9 +28,9 @@ WORKDIR /opt/tomcat/webapps
 COPY target/my-app-1.0-SNAPSHOT.jar .
 
 EXPOSE 8080
-
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
-
+RUN service /opt/tomcat/bin/catalina.sh start
+#CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+CMD ["java", "-jar", "target/my-app-1.0-SNAPSHOT.jar"]
 
 # select parent image
 #FROM maven:3.6.3-jdk-8
