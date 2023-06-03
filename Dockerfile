@@ -28,7 +28,7 @@ WORKDIR /opt/tomcat/webapps
 COPY target/my-app-1.0-SNAPSHOT.jar .
 
 EXPOSE 8080
-RUN service /opt/tomcat/bin/catalina.sh start
+RUN /opt/tomcat/bin/catalina.sh
 #CMD ["/opt/tomcat/bin/catalina.sh", "run"]
 CMD ["java", "-jar", "target/my-app-1.0-SNAPSHOT.jar"]
 
